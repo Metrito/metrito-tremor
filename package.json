@@ -15,14 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tremorlabs/tremor.git"
+    "url": "git+https://github.com/Metrito/metrito-tremor.git"
   },
   "author": "tremor",
   "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/tremorlabs/tremor/issues"
-  },
-  "homepage": "https://github.com/tremorlabs/tremor#readme",
+  "homepage": "https://github.com/Metrito/metrito-tremor#readme",
   "dependencies": {
     "@floating-ui/react": "^0.19.1",
     "@headlessui/react": "^1.7.14",
@@ -136,5 +133,6 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
-  }
+  },
+  "keywords": []
 }
