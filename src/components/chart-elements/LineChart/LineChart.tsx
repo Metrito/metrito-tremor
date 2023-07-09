@@ -12,6 +12,9 @@ import {
 } from "recharts";
 import { AxisDomain } from "recharts/types/util/types";
 
+import { CurveType, TLine } from "../../../lib/inputTypes";
+import { CustomizedReferenceLine } from "assets/customizedReferenceLine";
+
 import { constructCategoryColors, getYAxisDomain } from "../common/utils";
 import NoData from "../common/NoData";
 import BaseChartProps from "../common/BaseChartProps";
@@ -26,17 +29,18 @@ import {
   themeColorRange,
   tremorTwMerge,
 } from "lib";
-import { CurveType } from "../../../lib/inputTypes";
 
 export interface LineChartProps extends BaseChartProps {
   curveType?: CurveType;
   connectNulls?: boolean;
+  referenceLines?: Array<Line>;
 }
 
 const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) => {
   const {
     data = [],
     categories = [],
+    referenceLines = [],
     index,
     colors = themeColorRange,
     valueFormatter = defaultValueFormatter,
@@ -182,6 +186,14 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                 connectNulls={connectNulls}
               />
             ))}
+
+            {referenceLines.map((line, idx) => {
+              return CustomizedReferenceLine({
+                y: line.y,
+                strokeColor: line.strokeColor,
+                label: line.label,
+              });
+            })}
           </ReChartsLineChart>
         ) : (
           <NoData noDataText={noDataText} />

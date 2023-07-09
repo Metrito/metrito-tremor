@@ -26,18 +26,21 @@ import {
   getColorClassNames,
   tremorTwMerge,
 } from "lib";
-import { CurveType } from "../../../lib/inputTypes";
+import { CurveType, TLine } from "../../../lib/inputTypes";
+import { CustomizedReferenceLine } from "assets/customizedReferenceLine";
 
 export interface AreaChartProps extends BaseChartProps {
   stack?: boolean;
   curveType?: CurveType;
   connectNulls?: boolean;
+  referenceLines?: Array<TLine>;
 }
 
 const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) => {
   const {
     data = [],
     categories = [],
+    referenceLines = [],
     index,
     stack = false,
     colors = themeColorRange,
@@ -60,6 +63,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
     allowDecimals = true,
     noDataText,
     className,
+
     ...other
   } = props;
   const [legendHeight, setLegendHeight] = useState(60);
@@ -87,6 +91,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
                 vertical={false}
               />
             ) : null}
+
             <XAxis
               hide={!showXAxis}
               dataKey={index}
@@ -108,6 +113,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
               padding={{ left: 10, right: 10 }}
               minTickGap={5}
             />
+
             <YAxis
               width={yAxisWidth}
               hide={!showYAxis}
@@ -226,6 +232,14 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
                 connectNulls={connectNulls}
               />
             ))}
+
+            {referenceLines.map((line, idx) => {
+              return CustomizedReferenceLine({
+                y: line.y,
+                strokeColor: line.strokeColor,
+                label: line.label,
+              });
+            })}
           </ReChartsAreaChart>
         ) : (
           <NoData noDataText={noDataText} />

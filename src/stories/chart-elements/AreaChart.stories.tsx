@@ -34,7 +34,14 @@ const DefaultTemplate: ComponentStory<typeof AreaChart> = ({ ...args }) => (
   </Card>
 );
 
-const args = { categories: ["Sales", "Successful Payments"], index: "month" };
+const args = {
+  categories: ["Sales", "Successful Payments"],
+  index: "month",
+  referenceLines: [
+    { y: 1500, strokeColor: "red", label: "Reference 1" },
+    { y: 3700, strokeColor: "green", label: "Reference 2" },
+  ],
+};
 
 export const DefaultResponsive = ResponsiveTemplate.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

@@ -62,3 +62,9 @@ const alignItemsValues = ["start", "end", "center", "baseline", "stretch"] as co
 export type AlignItems = (typeof alignItemsValues)[number];
 
 export type FlexDirection = "row" | "col" | "row-reverse" | "col-reverse";
+
+export type TLine = {
+  y: number;
+  strokeColor: string;
+  label: string;
+};

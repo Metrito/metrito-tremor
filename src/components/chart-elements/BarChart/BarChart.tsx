@@ -13,6 +13,8 @@ import {
   YAxis,
 } from "recharts";
 import { AxisDomain } from "recharts/types/util/types";
+import { TLine } from "../../../lib/inputTypes";
+import { CustomizedReferenceLine } from "assets/customizedReferenceLine";
 
 import { constructCategoryColors, getYAxisDomain } from "../common/utils";
 import BaseChartProps from "../common/BaseChartProps";
@@ -26,12 +28,14 @@ export interface BarChartProps extends BaseChartProps {
   layout?: "vertical" | "horizontal";
   stack?: boolean;
   relative?: boolean;
+  referenceLines?: Array<TLine>;
 }
 
 const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) => {
   const {
     data = [],
     categories = [],
+    referenceLines = [],
     index,
     colors = themeColorRange,
     valueFormatter = defaultValueFormatter,
@@ -219,6 +223,14 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 animationDuration={animationDuration}
               />
             ))}
+
+            {referenceLines.map((line, idx) => {
+              return CustomizedReferenceLine({
+                y: line.y,
+                strokeColor: line.strokeColor,
+                label: line.label,
+              });
+            })}
           </ReChartsBarChart>
         ) : (
           <NoData noDataText={noDataText} />
