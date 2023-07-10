@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/Metrito/metrito-tremor.git"
   },
-  "author": "tremor",
+  "author": "metrito",
   "license": "Apache 2.0",
   "homepage": "https://github.com/Metrito/metrito-tremor#readme",
   "dependencies": {
@@ -103,7 +103,8 @@
   ],
   "types": "dist/index.d.ts",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "release": {
     "branches": [
@@ -134,5 +135,8 @@
       "@semantic-release/github"
     ]
   },
-  "keywords": []
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Metrito/metrito-tremor/issues"
+  }
 }
