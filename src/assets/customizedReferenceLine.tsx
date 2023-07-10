@@ -62,7 +62,7 @@ const CustomizedLabel: React.FC<CustomizedLabelProps> = (props) => {
   const PAD = 5;
   const labelWidth = bbox.width + 2 * PAD; // Here we adjust the label width based on the text length
   const labelHeight = 20;
-  const adjustedX = x + width - labelWidth - PAD;
+  const adjustedX = 70 + PAD;
   const adjustedY = y + height / 2 - labelHeight / 2;
   const textColor = isLight(strokeColor) ? "black" : "white";
 
