@@ -1,5 +1,5 @@
 {
-  "name": "@metrito-tremor/react",
+  "name": "@metrito/tremor-react",
   "version": "0.0.1-development",
   "description": "The React library to build dashboards faster.",
   "scripts": {
