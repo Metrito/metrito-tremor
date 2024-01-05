@@ -45,6 +45,12 @@ export const OtherColors: Story = {
   },
 };
 
+export const CustomColors: Story = {
+  args: {
+    colors: ["#32a852", "#fcba03", "orange-600", "blue-400"],
+  },
+};
+
 export const WithCustomValueFormatters: Story = {
   args: {
     valueFormatter: {
@@ -72,6 +78,14 @@ export const NoDataText: Story = {
     data: [],
     noDataText: "No data, try again later.",
   },
+};
+
+export const Animation: Story = {
+  args: { showAnimation: true },
+};
+
+export const LongAnimationDuration: Story = {
+  args: { showAnimation: true, animationDuration: 5000 },
 };
 
 export const OnValueChange: Story = {
