@@ -197,7 +197,24 @@ export const RotateXLabels: Story = {
 export const LegendSlider: Story = {
   args: {
     enableLegendSlider: true,
-    categories: ["Sales", "Successful Payments", "Test"],
+    className: "dark",
+    categories: [
+      "Sales",
+      "Successful Payments",
+      "Test",
+      "Fulano",
+      "Ciclado",
+      "Abel",
+      "jr",
+      "asdas",
+      "asdasdasdasd",
+      "alksndlasndl",
+      "asdnaksjdn",
+      "askjdnakjsndkjansd",
+      "asdjnaskjdnajsdakjsndkjasndkjasjnd",
+      "asldnaslkdna",
+      "alskndlas",
+    ],
   },
 };
 
