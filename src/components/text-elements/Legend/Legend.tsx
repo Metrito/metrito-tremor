@@ -287,7 +287,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
           />
           <div
             className={tremorTwMerge(
-              "absolute flex top-0 pr-1 bottom-0 right-0 items-center justify-center h-full bg-tremor-background dark:bg-zinc-800",
+              "absolute flex top-0 pr-1 bottom-0 right-0 items-center justify-center h-full bg-tremor-background rounded-lg dark:bg-zinc-800",
             )}
           >
             <ScrollButton
