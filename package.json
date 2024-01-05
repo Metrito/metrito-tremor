@@ -1,6 +1,6 @@
 {
   "name": "@metrito/tremor-react",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "The React library to build dashboards faster, now with improvements made by Metrito's team.",
   "scripts": {
     "prebuild": "rm -rf dist",
