@@ -23,7 +23,7 @@ const SparkLineChart = React.forwardRef<HTMLDivElement, SparkLineChartProps>((pr
     showAnimation = false,
     curveType = "linear",
     connectNulls = false,
-    noDataText,
+    noDataContent,
     className,
     ...other
   } = props;
@@ -60,7 +60,7 @@ const SparkLineChart = React.forwardRef<HTMLDivElement, SparkLineChartProps>((pr
             ))}
           </ReChartsLineChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>

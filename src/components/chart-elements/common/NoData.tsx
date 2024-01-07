@@ -1,12 +1,14 @@
 import { tremorTwMerge } from "lib";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Flex } from "../../../components/layout-elements/Flex";
 import { Text } from "../../../components/text-elements/Text";
 
 interface NoDataProps {
-  noDataText?: string;
+  children?: ReactNode;
 }
-const NoData = ({ noDataText = "No data" }: NoDataProps) => {
+const NoData = ({ children = "No Data" }: NoDataProps) => {
+  const childrenIsString = typeof children === "string";
+
   return (
     <Flex
       alignItems="center"
@@ -20,16 +22,20 @@ const NoData = ({ noDataText = "No data" }: NoDataProps) => {
         "dark:border-dark-tremor-border",
       )}
     >
-      <Text
-        className={tremorTwMerge(
-          // light
-          "text-tremor-content",
-          // dark
-          "dark:text-dark-tremor-content",
-        )}
-      >
-        {noDataText}
-      </Text>
+      {childrenIsString && (
+        <Text
+          className={tremorTwMerge(
+            // light
+            "text-tremor-content",
+            // dark
+            "dark:text-dark-tremor-content",
+          )}
+        >
+          {children}
+        </Text>
+      )}
+
+      {!childrenIsString && children}
     </Flex>
   );
 };

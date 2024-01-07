@@ -1,5 +1,6 @@
 import BaseAnimationTimingProps from "components/chart-elements/common/BaseAnimationTimingProps";
 import { Color } from "../../../lib";
+import { ReactNode } from "react";
 
 type FixedProps = {
   eventType: "dot" | "category" | "bar" | "slice" | "bubble";
@@ -19,7 +20,7 @@ interface BaseSparkChartProps
   categories: string[];
   index: string;
   colors?: (Color | string)[];
-  noDataText?: string;
+  noDataContent?: ReactNode;
 }
 
 export default BaseSparkChartProps;

@@ -1,6 +1,6 @@
 "use client";
 import { BaseColors, defaultValueFormatter, themeColorRange, tremorTwMerge } from "lib";
-import React, { useEffect } from "react";
+import React, { ReactNode, useEffect } from "react";
 import {
   Pie,
   PieChart as ReChartsDonutChart,
@@ -32,7 +32,7 @@ export interface DonutChartProps extends BaseAnimationTimingProps {
   showLabel?: boolean;
   showAnimation?: boolean;
   showTooltip?: boolean;
-  noDataText?: string;
+  noDataContent?: ReactNode;
   className?: string;
   onValueChange?: (value: EventProps) => void;
   customTooltip?: React.ComponentType<CustomTooltipType>;
@@ -86,7 +86,7 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
     animationDuration = 900,
     showAnimation = false,
     showTooltip = true,
-    noDataText,
+    noDataContent,
     onValueChange,
     customTooltip,
     className,
@@ -220,7 +220,7 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
             />
           </ReChartsDonutChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>

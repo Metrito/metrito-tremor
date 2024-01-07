@@ -93,8 +93,8 @@ export const NoData: Story = {
   args: { data: [] },
 };
 
-export const NoDataText: Story = {
-  args: { data: [], noDataText: "No data, try again later." },
+export const NoDataContent: Story = {
+  args: { data: [], noDataContent: "No data, try again later." },
 };
 
 export const NoCategories: Story = {

@@ -27,7 +27,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, SparkAreaChartProps>((props, 
     showGradient = true,
     curveType = "linear",
     connectNulls = false,
-    noDataText,
+    noDataContent,
     className,
     ...other
   } = props;
@@ -106,7 +106,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, SparkAreaChartProps>((props, 
             ))}
           </ReChartsAreaChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>

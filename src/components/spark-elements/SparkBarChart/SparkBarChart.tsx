@@ -24,7 +24,7 @@ const SparkBarChart = React.forwardRef<HTMLDivElement, SparkBarChartProps>((prop
     relative = false,
     animationDuration = 900,
     showAnimation = false,
-    noDataText,
+    noDataContent,
     className,
     ...other
   } = props;
@@ -60,7 +60,7 @@ const SparkBarChart = React.forwardRef<HTMLDivElement, SparkBarChartProps>((prop
             ))}
           </ReChartsBarChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>

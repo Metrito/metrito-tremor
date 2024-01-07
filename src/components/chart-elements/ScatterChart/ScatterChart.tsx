@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   CartesianGrid,
   Dot,
@@ -70,7 +70,7 @@ export interface ScatterChartProps
   minYValue?: number;
   maxYValue?: number;
   allowDecimals?: boolean;
-  noDataText?: string;
+  noDataContent?: ReactNode;
   enableLegendSlider?: boolean;
   onValueChange?: (value: EventProps) => void;
   customTooltip?: React.ComponentType<CustomTooltipType>;
@@ -132,7 +132,7 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
     minYValue,
     maxYValue,
     allowDecimals = true,
-    noDataText,
+    noDataContent,
     onValueChange,
     customTooltip,
     rotateLabelX,
@@ -355,7 +355,7 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
             ) : null}
           </ReChartsScatterChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>

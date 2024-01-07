@@ -74,7 +74,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
     maxValue,
     connectNulls = false,
     allowDecimals = true,
-    noDataText,
+    noDataContent,
     className,
 
     onValueChange,
@@ -437,7 +437,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
               : null}
           </ReChartsAreaChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>

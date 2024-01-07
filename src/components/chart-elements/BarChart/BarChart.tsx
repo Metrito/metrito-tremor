@@ -90,7 +90,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
     minValue,
     maxValue,
     allowDecimals = true,
-    noDataText,
+    noDataContent,
     onValueChange,
     customTooltip,
     rotateLabelX,
@@ -353,7 +353,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
             })}
           </ReChartsBarChart>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData>{noDataContent}</NoData>
         )}
       </ResponsiveContainer>
     </div>
