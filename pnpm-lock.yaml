@@ -139,6 +139,9 @@ devDependencies:
   babel-loader:
     specifier: ^8.3.0
     version: 8.3.0(@babel/core@7.23.5)(webpack@5.89.0)
+  chalk:
+    specifier: ^4.1.2
+    version: 4.1.2
   conventional-changelog-conventionalcommits:
     specifier: ^5.0.0
     version: 5.0.0
