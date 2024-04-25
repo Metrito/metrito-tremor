@@ -75,6 +75,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
     enableLegendSlider = false,
     customTooltip,
     rotateLabelX,
+    tickGap = 5,
     ...other
   } = props;
 
@@ -182,7 +183,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
               )}
               tickLine={false}
               axisLine={false}
-              minTickGap={5}
+              minTickGap={tickGap}
               angle={rotateLabelX?.angle}
               dy={rotateLabelX?.verticalShift}
               height={rotateLabelX?.xAxisHeight}

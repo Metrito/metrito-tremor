@@ -62,6 +62,7 @@ export interface BarChartProps extends BaseChartProps {
   layout?: "vertical" | "horizontal";
   stack?: boolean;
   relative?: boolean;
+  barCategoryGap?: string | number;
   referenceLines?: Array<TLine>;
 }
 
@@ -92,10 +93,12 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
     allowDecimals = true,
     noDataContent,
     onValueChange,
+    enableLegendSlider = false,
     customTooltip,
     rotateLabelX,
+    barCategoryGap,
+    tickGap = 5,
     className,
-    enableLegendSlider = false,
     ...other
   } = props;
   const CustomTooltip = customTooltip;
@@ -148,6 +151,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsBarChart
+            barCategoryGap={barCategoryGap}
             data={data}
             stackOffset={stack ? "sign" : relative ? "expand" : "none"}
             layout={layout === "vertical" ? "vertical" : "horizontal"}
@@ -199,6 +203,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 angle={rotateLabelX?.angle}
                 dy={rotateLabelX?.verticalShift}
                 height={rotateLabelX?.xAxisHeight}
+                minTickGap={tickGap}
               />
             ) : (
               <XAxis
@@ -219,7 +224,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 tickLine={false}
                 axisLine={false}
                 tickFormatter={valueFormatter}
-                minTickGap={5}
+                minTickGap={tickGap}
                 allowDecimals={allowDecimals}
                 angle={rotateLabelX?.angle}
                 dy={rotateLabelX?.verticalShift}

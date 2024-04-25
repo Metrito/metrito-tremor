@@ -4,9 +4,11 @@ import { Flex } from "../../../components/layout-elements/Flex";
 import { Text } from "../../../components/text-elements/Text";
 
 interface NoDataProps {
+  noDataText?: string;
+  className?: string;
   children?: ReactNode;
 }
-const NoData = ({ children = "No Data" }: NoDataProps) => {
+const NoData = ({ className, children = "No Data" }: NoDataProps) => {
   const childrenIsString = typeof children === "string";
 
   return (
@@ -20,13 +22,14 @@ const NoData = ({ children = "No Data" }: NoDataProps) => {
         "border-tremor-border",
         // dark
         "dark:border-dark-tremor-border",
+        className,
       )}
     >
       {childrenIsString && (
         <Text
           className={tremorTwMerge(
             // light
-            "text-tremor-content",
+            "text-tremor-content text-tremor-default",
             // dark
             "dark:text-dark-tremor-content",
           )}

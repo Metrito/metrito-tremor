@@ -26,7 +26,7 @@ import {
   getYAxisDomain,
 } from "../common/utils";
 
-import { CustomTooltipType } from "components/chart-elements/common/CustomTooltipProps";
+import { CustomTooltipProps } from "components/chart-elements/common/CustomTooltipProps";
 import {
   BaseColors,
   colorPalette,
@@ -73,12 +73,13 @@ export interface ScatterChartProps
   noDataContent?: ReactNode;
   enableLegendSlider?: boolean;
   onValueChange?: (value: EventProps) => void;
-  customTooltip?: React.ComponentType<CustomTooltipType>;
+  customTooltip?: React.ComponentType<CustomTooltipProps>;
   rotateLabelX?: {
     angle: number;
     verticalShift: number;
     xAxisHeight: number;
   };
+  tickGap?: number;
 }
 
 const renderShape = (props: any, activeNode: any | undefined, activeLegend: string | undefined) => {
@@ -138,6 +139,7 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
     rotateLabelX,
     className,
     enableLegendSlider = false,
+    tickGap = 5,
     ...other
   } = props;
   const CustomTooltip = customTooltip;
@@ -238,7 +240,7 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
                 tickLine={false}
                 tickFormatter={valueFormatter.x}
                 axisLine={false}
-                minTickGap={5}
+                minTickGap={tickGap}
                 domain={xAxisDomain as AxisDomain}
                 allowDataOverflow={true}
                 angle={rotateLabelX?.angle}
