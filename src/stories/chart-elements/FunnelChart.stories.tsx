@@ -183,10 +183,10 @@ export const NoData = {
   },
 };
 
-export const NoDataText: Story = {
+export const NoDataContent: Story = {
   args: {
     data: [],
-    noDataText: "No data, try again later.",
+    noDataContent: "No data, try again later.",
   },
 };
 

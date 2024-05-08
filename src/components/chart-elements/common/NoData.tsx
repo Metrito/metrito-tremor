@@ -4,7 +4,7 @@ import { Flex } from "../../../components/layout-elements/Flex";
 import { Text } from "../../../components/text-elements/Text";
 
 interface NoDataProps {
-  noDataText?: string;
+  noDataContent?: ReactNode;
   className?: string;
   children?: ReactNode;
 }

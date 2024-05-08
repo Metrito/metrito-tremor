@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ChartTooltipFrame, ChartTooltipRow } from "../common/ChartTooltip";
 import {
   BaseColors,
@@ -67,7 +67,7 @@ export interface FunnelChartProps extends React.HTMLAttributes<HTMLDivElement> {
   showTooltip?: boolean;
   onValueChange?: (value: EventProps) => void;
   customTooltip?: React.ComponentType<CustomTooltipProps>;
-  noDataText?: string;
+  noDataContent?: ReactNode;
   rotateLabelX?: {
     angle: number;
     verticalShift?: number;
@@ -98,7 +98,7 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
       showTooltip = true,
       onValueChange,
       customTooltip,
-      noDataText,
+      noDataContent,
       rotateLabelX,
       barGap = "20%",
       ...other
@@ -676,7 +676,7 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
             ) : null}
           </>
         ) : (
-          <NoData noDataText={noDataText} />
+          <NoData noDataContent={noDataContent} />
         )}
       </div>
     );
@@ -709,7 +709,7 @@ const validateData = (data: DataT[], calculatedFrom?: CalculateFrom): string | n
 const FunnelChart = ({ data, ...props }: FunnelChartProps) => {
   const errorMessage = data ? validateData(data, props.calculateFrom) : null;
   return errorMessage ? (
-    <NoData className="h-full w-full p-6" noDataText={`Calculation error: ${errorMessage}`} />
+    <NoData className="h-full w-full p-6" noDataContent={`Calculation error: ${errorMessage}`} />
   ) : (
     <FunnelChartPrimitive data={data} {...props} />
   );

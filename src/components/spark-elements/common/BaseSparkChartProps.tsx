@@ -20,7 +20,7 @@ interface BaseSparkChartProps
   categories: string[];
   index: string;
   colors?: (Color | string)[];
-  noDataText?: ReactNode;
+  noDataContent?: ReactNode;
   autoMinValue?: boolean;
   minValue?: number;
   maxValue?: number;
