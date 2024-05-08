@@ -57,6 +57,7 @@ const CustomizedLabel: React.FC<CustomizedLabelProps> = (props) => {
     return null;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { x, y, width, height } = viewBox;
 
   const PAD = 5;
